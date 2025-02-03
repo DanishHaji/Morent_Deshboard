@@ -45,15 +45,15 @@ const CarManagement: React.FC = () => {
         },
         elements: {
             line: {
-                tension: 0.4, // Adds wave effect
-                borderJoinStyle: 'round', // Makes joints rounded
+                tension: 0.4,
+                borderJoinStyle: 'round',
             },
             point: {
-                radius: 6, // Increases the size of points
-                backgroundColor: 'white', // White inner fill
-                borderWidth: 3, // Bold outline
-                borderColor: 'blue', // Matches line color
-                pointStyle: 'circle', // Circular points
+                radius: 6,
+                backgroundColor: 'white',
+                borderWidth: 3,
+                borderColor: 'blue',
+                pointStyle: 'circle',
             }
         },
         scales: {
@@ -71,6 +71,7 @@ const CarManagement: React.FC = () => {
             }
         }
     };
+
     return (
         <div className="max-w-[2800px] p-6 bg-white shadow-lg rounded-xl h-[950px] overflow-auto">
             {/* Navigation Bar */}

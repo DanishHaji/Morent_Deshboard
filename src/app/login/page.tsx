@@ -15,8 +15,8 @@ const Login = () => {
 
   const handleLogin = () => {
     if (username === correctUsername && password === correctPassword) {
-      // Save the login status in localStorage
-      localStorage.setItem("isLoggedIn", "true");
+      // Save the login status in a cookie
+      document.cookie = "isLoggedIn=true; path=/"; // Set cookie with path to '/' to make it accessible globally
       router.push("/"); // Redirect to the dashboard (or home page)
     } else {
       setError("Invalid username or password");

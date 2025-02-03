@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-import { Home, Users, Calendar, Bell, Settings, CreditCard, FileText, LogOut, BarChart3, Menu } from "lucide-react";
+import { Home, Users, Calendar, Bell, Settings, CreditCard, FileText, LogOut, BarChart3, Menu, Car } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation"; // For redirecting after logout
@@ -14,6 +14,7 @@ const Sidebar = () => {
   const menuItems = [
     { name: "Dashboard", icon: <Home size={20} />, path: "/" },
     { name: "Drivers", icon: <Users size={20} />, path: "/drivers" },
+    { name: "Available Cars", icon: <Car size={20} />, path: "/availableCars" },
     { name: "Booking", icon: <Calendar size={20} />, path: "/booking" },
     { name: "Notifications", icon: <Bell size={20} />, path: "/notificatio" },
     { name: "Settings", icon: <Settings size={20} />, path: "/settingss" },

@@ -13,9 +13,9 @@ const Statistics: React.FC = () => {
     });
 
     return (
-        <div className="flex flex-col h-[900px] w-full max-w-[400px] bg-gray-100 shadow-lg p-6 rounded-lg overflow-auto">
+        <div className="flex flex-col h-auto w-full max-w-[400px] bg-gray-100 shadow-lg p-6 rounded-lg overflow-auto mx-auto">
             <h1 className="text-2xl font-bold text-center mb-6 text-[#343A40]">
-                Today's Statistics
+                Today&apos;s Statistics
             </h1>
             <p className="text-center text-gray-500 mb-4">{formattedDate}</p>
 
@@ -53,7 +53,7 @@ const Statistics: React.FC = () => {
                     <h2 className="text-xl font-semibold text-[#343A40]">Hire vs Cancel</h2>
                     <p className="text-gray-500 text-sm">Today</p>
                 </div>
-                <div className="relative w-64 h-64 mx-auto">
+                <div className="relative w-full max-w-[200px] h-[200px] mx-auto">
                     <svg viewBox="0 0 36 36" className="w-full h-full">
                         <circle cx="18" cy="18" r="15.915" fill="none" stroke="#007bff" strokeWidth="3.5" strokeDasharray="54 46" strokeDashoffset="0" />
                         <circle cx="18" cy="18" r="15.915" fill="none" stroke="#dc3545" strokeWidth="3.5" strokeDasharray="20 80" strokeDashoffset="-54" />
