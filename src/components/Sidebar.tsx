@@ -45,7 +45,7 @@ const Sidebar = () => {
       </button>
 
       {/* Sidebar */}
-      <div className={`fixed top-0 left-0 h-[900px] w-[240px] bg-gray-900 text-white flex flex-col p-4 transition-transform duration-300 
+      <div className={`fixed top-0 left-0 h-[960px] w-[240px] bg-gray-900 text-white flex flex-col p-4 transition-transform duration-300 
         ${isOpen ? "translate-x-0" : "-translate-x-64"} lg:translate-x-0 lg:relative`}
       >
         {/* Logo Section */}

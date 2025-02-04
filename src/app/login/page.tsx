@@ -1,53 +1,56 @@
 'use client';
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";  // Use from next/navigation
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
-  const router = useRouter(); // Now this will work with Next.js app directory
+  const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  // Hardcoded login credentials (You can replace with API in real-world scenarios)
-  const correctUsername = "admin";
-  const correctPassword = "admin123";
+  useEffect(() => {
+    if (document.cookie.includes("isLoggedIn=true")) {
+      router.push("/dashboard");
+    }
+  }, [router]);
 
   const handleLogin = () => {
-    if (username === correctUsername && password === correctPassword) {
-      // Save the login status in a cookie
-      document.cookie = "isLoggedIn=true; path=/"; // Set cookie with path to '/' to make it accessible globally
-      router.push("/"); // Redirect to the dashboard (or home page)
+    if (username === "admin" && password === "admin123") {
+      document.cookie = "isLoggedIn=true; path=/";
+      router.push("/dashboard");
     } else {
       setError("Invalid username or password");
     }
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-800">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-80">
-        <h2 className="text-2xl font-bold mb-4">Admin Login</h2>
-        {error && <div className="text-red-500 mb-4">{error}</div>}
-        <input
-          type="text"
-          placeholder="Username"
-          className="w-full p-2 mb-4 border border-gray-300 rounded"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          className="w-full p-2 mb-4 border border-gray-300 rounded"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button
-          className="w-full bg-blue-500 text-white py-2 rounded-lg"
-          onClick={handleLogin}
-        >
-          Login
-        </button>
+    <div className="flex justify-center items-center h-screen bg-gradient-to-r from-black to-white">
+      <div className="bg-sky-100 p-8 rounded-lg shadow-2xl w-96 transform transition-all duration-500 hover:scale-105">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Admin Login</h2>
+        {error && <div className="text-red-500 text-sm text-center mb-4">{error}</div>}
+        <div className="space-y-4">
+          <input
+            type="text"
+            placeholder="Username"
+            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all duration-300"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all duration-300"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button
+            className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold text-lg transition-all duration-300 hover:bg-blue-700 active:scale-95"
+            onClick={handleLogin}
+          >
+            Login
+          </button>
+        </div>
       </div>
     </div>
   );
